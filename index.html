@@ -63,7 +63,7 @@
                 </script>
             <p> Write a table to the page </p>
                 <script>
-                    document.write("table border=\"1\"> ")
+                    // document.write("<table border='1'>");
                 </script>
         </div>
 
@@ -71,6 +71,9 @@
             <h1>Window and Document Object </h1>
             <p> Try alert, open, location, url </p>
             <script>
+                //window.alert("pop up alert windows")
+                //alert("another alert");
+                //window.location.assign("https://www.google.com");
 
             </script>
 
@@ -92,6 +95,32 @@
             <p id="p3"> Paragraph Number three </p>
             <p>Please write JavaScript code to change the content of each paragraph.​
             <p>
+            <script>
+                // change the first paragraph
+                const pOne = document.getElementById("p1");
+                pOne.innerHTML = "<b> Bold elements</b>" 
+
+                // Other getElemets
+
+                // Paragraph 1
+                const pOne = document.getElementsByTagName[1];
+                console.log(pOne); 
+
+                // Paragraph 2
+                const pTwo = document.getElementsByTagName[2];
+                console.log(pTwo); 
+
+                // Paragraph 3
+                const pThree = document.getElementsByTagName[3];
+                console.log(pThree); 
+
+
+
+
+
+
+
+            </script>
 
 
         </div>
@@ -101,13 +130,29 @@
             <p> Please enter your numbers </p>
             <script>
                 function calculate() {
+                    // get the value from the form and add them up 
+                    const input1 = document.getElementsByName('num1')[0];
+                    console.log("Get the first unput "+ input1.value);
 
+                    const input2 = document.getElementsByName('num2')[0];
+                    console.log("Get the second unput "+ input2.value);
+
+                  
+                    // Input values and add them up
+                    var a = parseFloat(input1.value);
+                    var b = parseFloat(input2.value);
+                    var c = a + b;
+                    console.log("The result is:  " + c)
+
+                    // Displays the result
+                    const resultL = document.getElementById("result");
+                    resultL.textContent = " " + c;
 
                 }
             </script>
             <p> <input type="text" name="num1" /> + <input type="text" name="num2">
                 <input type="button" value="=" onclick="calculate();">
-                <label id="result"> ? </label>
+                <label id="result"> ? </label> 
             </p>
 
         </div>
@@ -131,6 +176,18 @@
                     </label>
                 </p>
             </form>
+            <script> 
+                // Event handler 
+                function welcome(){
+                    alert("Thank you! ");
+                }
+                //Binding -- register the event 
+                const nameElement = document.getElementById('cName:')
+                nameE.addEventListener('blur',welcome); 
+
+            </script>
+
+
 
         </div>
 
