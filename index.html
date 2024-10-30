@@ -103,16 +103,16 @@
                 // Other getElemets
 
                 // Paragraph 1
-                const pOne = document.getElementsByTagName[1];
-                console.log(pOne); 
-
-                // Paragraph 2
-                const pTwo = document.getElementsByTagName[2];
+                const pTwo = document.getElementsByTagName('p')[1];
                 console.log(pTwo); 
 
-                // Paragraph 3
-                const pThree = document.getElementsByTagName[3];
+                // Paragraph 2
+                const pThree = document.getElementsByTagName[2];
                 console.log(pThree); 
+
+                // Paragraph 3
+                const pfour = document.getElementsByTagName[3];
+                console.log(pfour); 
 
 
 
@@ -166,7 +166,7 @@
                     </label>
                 </p>
 
-                <p id="message">
+                <p id="checkmessage">
 
                 </p>
 
@@ -179,11 +179,18 @@
             <script> 
                 // Event handler 
                 function welcome(){
-                    alert("Thank you! ");
+                   // alert("Thank you! ");
+                   const namebox = document.getElementById('cName') 
+                   //check and call backend database 
+                   var newmessage = "Welcome"+ namebox.value+" valued customer!";
+                    //put the message back
+                    document.getElementById('checkmessage').textContent = newmessage;
                 }
+                // Event handler 
+
                 //Binding -- register the event 
-                const nameElement = document.getElementById('cName:')
-                nameE.addEventListener('blur',welcome); 
+                const nameElement = document.getElementById('cName'); 
+                nameElement.addEventListener('blur', welcome);
 
             </script>
 
@@ -194,8 +201,25 @@
         <div class="practice">
             <h1> Practice - Calculate Square</h1>
             Calculating Square:
-            <input type="text" id="num" placeholder="Type in a number"> <sup> 2 </sup> =
-            <label id="result"> ? </label>
+            <input type="text" id="squarenum" placeholder="Type in a number"> <sup> 2 </sup> =
+            <label id="squareresult"> </label>
+            <script>
+                function dosquare(){
+                     // get the number
+                    const squareE = document.getElementById("squarenum");
+                    var number = parseInt(squareE.value);
+                    console.log("The square root is" + number); 
+                    var newnum = number * number;
+                    //put it back to the page
+                    document.getElementById("squareresult").textContent = " " + newnum;
+                }   
+
+                 const squareE = document.getElementById('squarenum');
+                 squareE.addEventListener('blur', dosquare);k
+
+            </script>
+
+          
 
         </div>
 
@@ -209,8 +233,19 @@
 
             <input type="button" id="tryit" value="Click and Display"> 
 
-            <div id="message"> 
+            <div id="htmlcode"> 
             </div>
+            <script>
+                    function convertHTML(){
+                        const codeE = document.getElementById('code');
+                        const htmlcodeE = document.getElementById('htmlcode');
+
+                        htmlcodeE.innerHTML = codeE.textContent;
+                    }
+
+                    document.getElementById('tryit').addEventListener('click', convertHTML);
+                    console.log("HTML code:" + convertHTML);
+            </script>
 
 
         </div>
