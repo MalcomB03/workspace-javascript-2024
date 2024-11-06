@@ -249,40 +249,79 @@
 
 
         </div>
-
         <div class="practice">
-            <h1>Decision statement - If </h1>
-            Honda Accord Used Car price estimate,
-            <p>Please enter the year of the car
-                <select id="year">
-                    <option> 2003</option>
-                    <option> 2004</option>
-                </select>.</p>
-            <p>Please enter the condition of the car
-                <select id="condition">
-                    <option> Fair</option>
-                    <option> Good</option>
-                </select>.</p>
-
-            <p id="price">
-
+            <h1>Decision statement - If</h1>
+            <p>Please enter the year of the car:
+                <select id="year" onchange="updatePrice()">
+                    <option value="2003">2003</option>
+                    <option value="2004">2004</option>
+                </select>.
             </p>
+            <p>Please enter the condition of the car:
+                <select id="condition" onchange="updatePrice()">
+                    <option value="Fair">Fair</option>
+                    <option value="Good">Good</option>
+                </select>.
+            </p>
+        
+            <p id="price"></p>
+        </div>
+        
+        <script type="text/javascript">
+            function updatePrice() {
+                const year = document.getElementById("year").value;
+                const condition = document.getElementById("condition").value;
+                let price = 0;
+        
+                if (year === "2003") {
+                    price = condition === "Good" ? 6000 : 4000; // Example prices
+                } else if (year === "2004") {
+                    price = condition === "Good" ? 8000 : 5000; // Example prices
+                }
+        
+                document.getElementById("price").innerText = `Estimated Price: $${price}`;
+            }
+        </script>
+        
+        
 
-            <script type="text/javascript">
 
-
-
-            </script>
 
         </div>
 
         <div class="practice">
-            <h1> Decision Statement - Switch</h1>
-            <p> Choose your favorite theme(warm, cool, hot)
+            <h1>Decision Statement - Switch</h1>
+            <p>Choose your favorite theme (warm, cool, hot):
                 <input type="text" id="theme">
+                <button onclick="showThemeMessage()">Submit</button>
             </p>
-
+            <p id="message"></p>
         </div>
+        
+        <script type="text/javascript">
+            function showThemeMessage() {
+                const theme = document.getElementById("theme").value.toLowerCase();
+                let message;
+        
+                switch (theme) {
+                    case 'warm':
+                        message = "You chose a warm theme! Perfect for cozy settings.";
+                        break;
+                    case 'cool':
+                        message = "You chose a cool theme! Great for a calm atmosphere.";
+                        break;
+                    case 'hot':
+                        message = "You chose a hot theme! Exciting and vibrant!";
+                        break;
+                    default:
+                        message = "Please choose a valid theme: warm, cool, or hot.";
+                        break;
+                }
+        
+                document.getElementById("message").innerText = message;
+            }
+        </script>
+        
 
 
 
